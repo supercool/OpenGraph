@@ -1,0 +1,103 @@
+{% import "_includes/forms" as forms %}
+
+<div class="opengraph-container">
+
+{{
+	forms.textField({
+		id: name,
+		class: 'opengraph-link',
+		name: name~'[link]',
+		value: value.link ?? '',
+	})
+}}
+
+<div id="{{name}}-opengraph-wrapper">
+<table>
+	<tr>
+		<td>
+			<span> Website Name </span>
+		</td>
+		<td>
+			{{
+				forms.textField({
+					id: name~'-website-name',
+					name: name~'[name]',
+					value: value.name ?? ''
+				})
+			}}
+		</td>
+	</tr>
+
+	<tr>
+		<td>
+			<span> Title </span>
+		</td>
+		<td>
+			{{
+				forms.textField({
+					id: name~'-title',
+					name: name~'[title]',
+					value: value.title ?? ''
+				})
+			}}
+		</td>
+	</tr>
+
+	<tr>
+		<td>
+			<span> Description </span>
+		</td>
+		<td>
+			{{
+				forms.textField({
+					id: name~'-description',
+					name: name~'[description]',
+					value: value.description ?? ''
+				})
+			}}
+		</td>
+	</tr>
+
+	<tr>
+		<td>
+			<span> Image </span>
+		</td>
+		<td>
+			<img id="{{name}}-image-object" src=" {{ value.image ?? '' }} " alt="" width="100%" />
+			{{
+				forms.textField({
+					id: name~'-image',
+					name: name~'[image]',
+					value: value.image ?? ''
+				})
+			}}
+		</td>
+	</tr>
+
+	<tr>
+		<td>
+			<span> Favicon </span>
+		</td>
+		<td>
+			<img src=" {{ value.favicon ?? '' }} " alt="" width="15px" />
+			{{
+				forms.textField({
+					id: name~'favicon',
+					name: name~'[favicon]',
+					value: value.favicon ?? ''
+				})
+			}}
+		</td>
+	</tr>
+</table>
+
+{{
+	forms.hidden({
+		name: name~'[oldLink]',
+		value: value.link ?? ''
+	})
+}}
+
+</div>
+
+</div>
