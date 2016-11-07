@@ -60,7 +60,7 @@ class OpenGraphPlugin extends BasePlugin
 	 */
 	public function getDeveloper()
 	{
-		return "Naveed Ziarab";
+		return "Supercool Ltd";
 	}
 
 	/**
