@@ -37,10 +37,10 @@ class OpenGraphService extends BaseApplicationComponent
 			return ['success' => false, 'message' => "Invalid URL: " . $model->link ];
 		}
 
-		$model->link = $graph->url;
+		$model->link =  (!empty($graph->link)) ? $graph->link : $model->link;
         $model->name = $graph->site_name;
-        $model->title = $graph->title;
-        $model->description = $graph->description;
+        $model->title =  (!empty($graph->title)) ? $graph->title : "No title found";
+        $model->description = (!empty($graph->description)) ? $graph->description : "No description found";
         $model->image = $graph->image;
 
         if ( $model->image == "" )
